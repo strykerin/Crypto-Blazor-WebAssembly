@@ -8,7 +8,7 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Crypto_Blazor_WebAssembly
+namespace Crypto.Blazor.WebAssembly
 {
     public class Program
     {
