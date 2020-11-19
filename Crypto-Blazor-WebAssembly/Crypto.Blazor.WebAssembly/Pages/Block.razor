@@ -28,6 +28,13 @@
             <p>@CalculateHash.SHA256HashFunction(_blockNumber+_nonce+_data)</p>
         </div>
     </div>
+    <div class="row">
+        <div class="col-6">
+            <button class="btn btn-primary" @onclick="Mine">
+                Mine!
+            </button>
+        </div>
+    </div>
 </div>
 
 @code {
@@ -40,5 +47,23 @@
     {
         _hash = CalculateHash.SHA256HashFunction(_blockNumber + _nonce + _data);
         return base.OnInitializedAsync();
+    }
+
+    private void Mine()
+    {
+        int nonce = 0;
+        string hash = string.Empty;
+
+        while (true)
+        {
+            hash = CalculateHash.SHA256HashFunction(_blockNumber + nonce + _data);
+            if (hash.StartsWith("0000"))
+            {
+                _hash = hash;
+                _nonce = nonce.ToString();
+                break;
+            }
+            nonce++;
+        }
     }
 }
