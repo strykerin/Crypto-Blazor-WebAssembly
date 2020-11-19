@@ -1,0 +1,18 @@
+﻿@inherits Crypto.Blazor.WebAssembly.Components.HashBase
+
+<div class="container">
+    <div class="row">
+        <h1>Hash Function</h1>
+    </div>
+    <div class="row">
+        <div class="col-12 justify-content-start">
+            <input @bind-value="@_input" @bind-value:event="oninput"/>
+        </div>
+    </div>
+    <div class="row">
+        <p>
+            @SHA256HashFunction(_input)
+        </p>
+    </div>
+</div>
+

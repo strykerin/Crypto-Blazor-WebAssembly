@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Security.Cryptography;
+﻿using System.Security.Cryptography;
 using System.Text;
 using Microsoft.AspNetCore.Components;
 
@@ -10,7 +6,7 @@ namespace Crypto.Blazor.WebAssembly.Components
 {
     public class HashBase : ComponentBase
     {
-        public string Input = string.Empty;
+        public string _input = string.Empty;
 
         public string SHA256HashFunction (string plainText)
         {
