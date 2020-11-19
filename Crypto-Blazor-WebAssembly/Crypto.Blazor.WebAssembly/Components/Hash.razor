@@ -1,6 +1,4 @@
-﻿@inherits Crypto.Blazor.WebAssembly.Components.HashBase
-
-<div class="container">
+﻿<div class="container">
     <div class="row">
         <h1>Hash Function</h1>
     </div>
@@ -11,8 +9,12 @@
     </div>
     <div class="row">
         <p>
-            @SHA256HashFunction(_input)
+            @CalculateHash.SHA256HashFunction(_input)
         </p>
     </div>
 </div>
+
+@code {
+    public string _input = string.Empty;
+}
 
