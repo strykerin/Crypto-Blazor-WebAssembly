@@ -1,0 +1,44 @@
+﻿@page "/block"
+
+<div class="container">
+    <div class="row">
+        <h1>Block</h1>
+    </div>
+    <div class="row">
+        <div class="col-6">
+            <label>Block Number: </label>
+            <input @bind-value="@_blockNumber" @bind-value:event="oninput"/>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6">
+            <label>Nonce: </label>
+            <input @bind-value="@_nonce" @bind-value:event="oninput"/>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6">
+            <label>Data: </label>
+            <input @bind-value="@_data" @bind-value:event="oninput"/>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6">
+            <label>Hash: </label>
+            <p>@CalculateHash.SHA256HashFunction(_blockNumber+_nonce+_data)</p>
+        </div>
+    </div>
+</div>
+
+@code {
+    private string _blockNumber = "1";
+    private string _nonce = "12401";
+    private string _data = string.Empty;
+    private string _hash;
+
+    protected override Task OnInitializedAsync()
+    {
+        _hash = CalculateHash.SHA256HashFunction(_blockNumber + _nonce + _data);
+        return base.OnInitializedAsync();
+    }
+}
