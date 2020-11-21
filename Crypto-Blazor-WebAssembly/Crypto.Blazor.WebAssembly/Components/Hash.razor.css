@@ -1,4 +1,9 @@
 ﻿input {
     width: 50%;
-/*    padding-left: 0px;*/
+    border-radius: 4px;
+}
+
+.row {
+    margin-top: 12px;
+    margin-bottom: 12px;
 }
