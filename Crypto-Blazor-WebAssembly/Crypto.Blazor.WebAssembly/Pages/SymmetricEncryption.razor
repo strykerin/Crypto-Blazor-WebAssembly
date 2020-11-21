@@ -1,0 +1,43 @@
+﻿@page "/symmetric-encryption"
+
+<div class="container">
+    <div class="row">
+        <h1>Symmetric Encryption</h1>
+    </div>
+    <div class="row">
+        <div class="col-6">
+            <label>Message to encrypt:</label>
+            <input @bind-value="@_plainText" @bind-value:event="oninput"/>
+        </div>
+    </div>
+    <div class="row">
+        <p>
+            Cypher Text: @_cypherText;
+        </p>
+    </div>
+</div>
+
+@code {
+    private string _plainText;
+    private string _cypherText;
+
+    private byte[] Encrypt()
+    {
+        byte[] key, iv;
+
+        using Aes aes = Aes.Create();
+        key = aes.Key;
+        iv = aes.IV;
+
+        var encryptor = aes.CreateEncryptor(key, iv);
+
+        using var ms = new MemoryStream();
+        using var cs = new CryptoStream(ms, encryptor, CryptoStreamMode.Write);
+        using (var sw = new StreamWriter(cs))
+        {
+            sw.Write(_plainText);
+        }
+
+        return ms.ToArray();
+    }
+}
