@@ -5,21 +5,28 @@
         <h1>Block</h1>
     </div>
     <div class="row">
-        <div class="col-6">
+        <div class="col-2">
             <label>Block Number: </label>
+        </div>
+        <div class="col-4"
             <input @bind-value="@_blockNumber" @bind-value:event="oninput"/>
         </div>
     </div>
     <div class="row">
-        <div class="col-6">
+        <div class="col-2">
             <label>Nonce: </label>
+        </div>
+        <div class="col-4"
             <input @bind-value="@_nonce" @bind-value:event="oninput"/>
         </div>
+
     </div>
     <div class="row">
-        <div class="col-6">
+        <div class="col-2">
             <label>Data: </label>
-            <input @bind-value="@_data" @bind-value:event="oninput"/>
+        </div>
+        <div class="col-4">
+            <textarea cols="30" rows="10" @bind-value="@_data" @bind-value:event="oninput"/>
         </div>
     </div>
     <div class="row">

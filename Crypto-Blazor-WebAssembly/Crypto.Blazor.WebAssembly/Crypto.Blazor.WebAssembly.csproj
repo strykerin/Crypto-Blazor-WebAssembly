@@ -6,10 +6,12 @@
 
   <ItemGroup>
     <None Remove="Components\Hash.razor.css" />
+    <None Remove="Pages\Block.razor.css" />
   </ItemGroup>
 
   <ItemGroup>
     <Content Include="Components\Hash.razor.css" />
+    <Content Include="Pages\Block.razor.css" />
   </ItemGroup>
 
   <ItemGroup>
